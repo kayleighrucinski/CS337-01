@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6h6-iT-TrF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SchoolList-->
+        <scene sceneID="9hK-Nm-Nxj">
+            <objects>
+                <viewController title="SchoolList" id="KV0-8J-yMn" customClass="SchoolsListTableViewController" customModule="NJSchoolsMap123" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ipb-I0-1Sz" customClass="CustomSchoolTableViewCell" customModule="NJSchoolsMap123" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JL7-ov-mI2">
+                                <rect key="frame" x="0.0" y="59" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="NJ School List" id="zCu-dY-dY2"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jGX-Uo-Z0D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hFq-Cs-nG3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbG-70-rdl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3203" y="530"/>
+        </scene>
+        <!--SchoolMap-->
+        <scene sceneID="PDn-VW-6Ra">
+            <objects>
+                <viewController title="SchoolMap" id="BwD-Lu-wL5" customClass="MapViewController" customModule="NJSchoolsMap123" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h1d-vj-sg7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rDo-im-SrU">
+                                <rect key="frame" x="20" y="158" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid - 3D"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectMapType:" destination="BwD-Lu-wL5" eventType="valueChanged" id="OjC-BE-C7b"/>
+                                </connections>
+                            </segmentedControl>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeG-fe-s8k">
+                                <rect key="frame" x="0.0" y="66" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="NJ Schools Map" id="Pnz-ZC-SCM"/>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dd9-P6-SUJ">
+                                <rect key="frame" x="20" y="213" width="374" height="471"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="g9d-8V-Dvl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dd9-P6-SUJ" firstAttribute="centerX" secondItem="g9d-8V-Dvl" secondAttribute="centerX" id="0Ua-hn-6Ng"/>
+                            <constraint firstItem="dd9-P6-SUJ" firstAttribute="trailing" secondItem="rDo-im-SrU" secondAttribute="trailing" id="1Xr-4R-LMo"/>
+                            <constraint firstItem="dd9-P6-SUJ" firstAttribute="leading" secondItem="rDo-im-SrU" secondAttribute="leading" id="9Rm-g2-uls"/>
+                            <constraint firstItem="dd9-P6-SUJ" firstAttribute="leading" secondItem="h1d-vj-sg7" secondAttribute="leadingMargin" id="CEQ-8W-9fh"/>
+                            <constraint firstItem="dd9-P6-SUJ" firstAttribute="top" secondItem="rDo-im-SrU" secondAttribute="bottom" constant="26" id="Hj3-VE-q56"/>
+                            <constraint firstItem="g9d-8V-Dvl" firstAttribute="bottom" secondItem="dd9-P6-SUJ" secondAttribute="bottom" constant="127" id="MNP-zf-zy3"/>
+                            <constraint firstItem="dd9-P6-SUJ" firstAttribute="centerY" secondItem="g9d-8V-Dvl" secondAttribute="centerY" id="oXz-Ek-LVa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pra-V7-Gn3"/>
+                    <connections>
+                        <outlet property="mapTypeSelection" destination="rDo-im-SrU" id="7FF-zG-khm"/>
+                        <outlet property="schoolsMap" destination="dd9-P6-SUJ" id="Pas-T1-1xh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4L-G2-vOs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="Gd4-Hq-Sw7">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="NJ School Map" id="aiE-2Q-wqj"/>
+                    </items>
+                </navigationBar>
+            </objects>
+            <point key="canvasLocation" x="3176.811594202899" y="-293.30357142857139"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8t2-mO-fpD">
+            <objects>
+                <tabBarController id="6h6-iT-TrF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kx0-d7-8cC"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wc3-rx-lSW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0O3-Jn-xAj" kind="relationship" relationship="viewControllers" id="5dS-BV-8N0"/>
+                        <segue destination="azy-hT-AzV" kind="relationship" relationship="viewControllers" id="Iuk-RP-F1k"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6C-0b-j6n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676.81159420289862" y="158.70535714285714"/>
+        </scene>
+        <!--NJ School Map-->
+        <scene sceneID="D0Y-Pb-QSf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0O3-Jn-xAj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="NJ School Map" image="globe" catalog="system" id="0Ck-Sf-Dve"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AkO-v1-RQF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BwD-Lu-wL5" kind="relationship" relationship="rootViewController" id="Pdh-4m-0uO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oza-Iw-8gR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2266.666666666667" y="-293.30357142857139"/>
+        </scene>
+        <!--NJ School List-->
+        <scene sceneID="zNn-Ew-bpJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="azy-hT-AzV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="NJ School List" image="list.bullet.rectangle.fill" catalog="system" id="zf1-qq-DRE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jg4-IL-kWe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KV0-8J-yMn" kind="relationship" relationship="rootViewController" id="GzV-9f-oHQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvG-h2-rj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="530"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="list.bullet.rectangle.fill" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
